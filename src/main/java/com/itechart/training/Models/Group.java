@@ -7,7 +7,7 @@ import java.sql.Date;
  * Created by zhenya on 04.02.16.
  */
 @Entity
-@Table(name = "group")
+@Table(name = "groups")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

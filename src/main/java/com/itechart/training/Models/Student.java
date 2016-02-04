@@ -23,9 +23,9 @@ public class Student {
     @Column(name = "BIRTHDATE")
     private Date birthDate;
 
-//    @ManyToOne
-//    @JoinColumn(name = "GROUP_ID")
-//    private Group group;
+    @ManyToOne
+    @JoinColumn(name = "GROUP_ID")
+    private Group group;
 
     public long getId() {
         return id;
@@ -59,11 +59,11 @@ public class Student {
         this.birthDate = birthDate;
     }
 
-//    public Group getGroup() {
-//        return group;
-//    }
-//
-//    public void setGroup(Group group) {
-//        this.group = group;
-//    }
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 }

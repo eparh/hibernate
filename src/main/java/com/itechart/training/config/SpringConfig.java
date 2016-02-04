@@ -69,7 +69,7 @@ public class SpringConfig {
         hibernateProperties.setProperty("hibernate.hbm2ddl.auto",
                 "validate");
         hibernateProperties.setProperty("hibernate.dialect",
-                "org.hibernate.dialect.MySQLDialect");
+                "org.hibernate.dialect.MySQLInnoDBDialect");
         hibernateProperties.setProperty("hibernate.show_sql",
                 "true");
         return hibernateProperties;
