@@ -1,4 +1,4 @@
-package com.itechart.training.Models;
+package com.itechart.training.models;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,8 +11,8 @@ import java.sql.Date;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private long id;
+    @Column(name = "ID", columnDefinition = "INT(11)")
+    private Long id;
 
     @Column(name = "FIRST_NAME")
     private String firstName;
@@ -23,9 +23,9 @@ public class Student {
     @Column(name = "BIRTHDATE")
     private Date birthDate;
 
-    @ManyToOne
-    @JoinColumn(name = "GROUP_ID")
-    private Group group;
+//    @ManyToOne
+//    @JoinColumn(name = "GROUP_ID")
+//    private Group group;
 
     public long getId() {
         return id;
@@ -59,11 +59,11 @@ public class Student {
         this.birthDate = birthDate;
     }
 
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
-    }
+//    public Group getGroup() {
+//        return group;
+//    }
+//
+//    public void setGroup(Group group) {
+//        this.group = group;
+//    }
 }

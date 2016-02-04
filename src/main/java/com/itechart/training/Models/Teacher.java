@@ -1,4 +1,4 @@
-package com.itechart.training.Models;
+package com.itechart.training.models;
 
 import javax.persistence.*;
 
@@ -10,8 +10,8 @@ import javax.persistence.*;
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private long id;
+    @Column(name = "ID", columnDefinition = "INT(11)")
+    private Long id;
     @Column(name = "FIRST_NAME")
     private String FirstName;
     @Column(name = "LAST_NAME")

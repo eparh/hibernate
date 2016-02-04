@@ -1,4 +1,4 @@
-package com.itechart.training.Models;
+package com.itechart.training.models;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,8 +11,8 @@ import java.sql.Date;
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private long id;
+    @Column(name = "ID", columnDefinition = "INT(11)")
+    private Long id;
 
     @Column(name = "NAME")
     private String name;
@@ -28,7 +28,7 @@ public class Group {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
