@@ -18,4 +18,5 @@ public class GroupDao {
     public Group findById(long id) {
         return manager.find(Group.class, id);
     }
+
 }

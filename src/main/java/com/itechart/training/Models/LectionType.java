@@ -17,8 +17,6 @@ public class LectionType {
     @Column(name = "NAME")
     private String name;
 
-
-
     public long getId() {
         return id;
     }
@@ -33,5 +31,13 @@ public class LectionType {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "LectionType{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

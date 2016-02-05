@@ -20,7 +20,7 @@ public class LossStudent {
 
     @ManyToOne
     @JoinColumn(name = "LECTION_ID")
-    private LectionGroup lectionGroup;
+    private LectionType lection;
 
     @Column(name = "DATE")
     private Date date;
@@ -44,12 +44,12 @@ public class LossStudent {
         this.student = student;
     }
 
-    public LectionGroup getLectionGroup() {
-        return lectionGroup;
+    public LectionType getLectionGroup() {
+        return lection;
     }
 
-    public void setLectionGroup(LectionGroup lectionGroup) {
-        this.lectionGroup = lectionGroup;
+    public void setLectionGroup(LectionType lection) {
+        this.lection = lection;
     }
 
     public Date getDate() {

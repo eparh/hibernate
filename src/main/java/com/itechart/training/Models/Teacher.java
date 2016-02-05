@@ -40,4 +40,13 @@ public class Teacher {
     public void setLastname(String lastname) {
         Lastname = lastname;
     }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "id=" + id +
+                ", FirstName='" + FirstName + '\'' +
+                ", Lastname='" + Lastname + '\'' +
+                '}';
+    }
 }
