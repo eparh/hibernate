@@ -3,12 +3,13 @@ package com.itechart.training.models;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 /**
  * Created by zhenya on 05.02.16.
  */
 @Embeddable
-public class LectionPK {
+public class LectionPK  implements Serializable{
     @ManyToOne
     @JoinColumn(name = "LECTION_ID")
     private LectionType lectionType;
@@ -23,6 +24,12 @@ public class LectionPK {
 
     public LectionType getLectionType() {
         return lectionType;
+    }
+
+    public LectionPK(LectionType lectionType, Group group, Teacher teacher) {
+        this.lectionType = lectionType;
+        this.group = group;
+        this.teacher = teacher;
     }
 
     public void setLectionType(LectionType lectionType) {
@@ -43,5 +50,14 @@ public class LectionPK {
 
     public void setGroup(Group group) {
         this.group = group;
+    }
+
+    @Override
+    public String toString() {
+        return "LectionPK{" +
+                "lectionType=" + lectionType +
+                ", teacher=" + teacher +
+                ", group=" + group +
+                '}';
     }
 }

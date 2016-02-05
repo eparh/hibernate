@@ -1,42 +1,41 @@
 package com.itechart.training.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by zhenya on 04.02.16.
  */
 @Entity
-@Table(name = "lection")
+@Table(name = "group_lection")
 public class LectionGroup {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", columnDefinition = "INT(11)")
-    private Long id;
+    @EmbeddedId
+    private LectionPK id;
 
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "DATE")
+    private Date date;
 
-    public long getId() {
+    public LectionPK getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(LectionPK id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Date getDate() {
+        return date;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override
     public String toString() {
         return "LectionGroup{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", date=" + date +
                 '}';
     }
 }
