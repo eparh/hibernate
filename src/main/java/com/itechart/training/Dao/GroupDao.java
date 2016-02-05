@@ -1,7 +1,6 @@
 package com.itechart.training.Dao;
 
 import com.itechart.training.models.Group;
-import com.itechart.training.models.Student;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
