@@ -2,14 +2,13 @@ package com.itechart.training.models;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.logging.StreamHandler;
 
 /**
  * Created by zhenya on 04.02.16.
  */
 @Entity
 @Table(name = "loss_student")
-public class LectionMiss {
+public class LossStudent {
 
     @Id
     @Column(name = "LOSS_STUDENT_ID", columnDefinition = "INT(11)")
@@ -21,7 +20,7 @@ public class LectionMiss {
 
     @ManyToOne
     @JoinColumn(name = "LECTION_ID")
-    private Lection lection;
+    private LectionGroup lectionGroup;
 
     @Column(name = "DATE")
     private Date date;
@@ -45,12 +44,12 @@ public class LectionMiss {
         this.student = student;
     }
 
-    public Lection getLection() {
-        return lection;
+    public LectionGroup getLectionGroup() {
+        return lectionGroup;
     }
 
-    public void setLection(Lection lection) {
-        this.lection = lection;
+    public void setLectionGroup(LectionGroup lectionGroup) {
+        this.lectionGroup = lectionGroup;
     }
 
     public Date getDate() {
@@ -71,7 +70,7 @@ public class LectionMiss {
 
     @Override
     public String toString() {
-        return "LectionMiss{" +
+        return "LossStudent{" +
                 "id=" + id +
                 ", student=" + student +
                 ", date=" + date +

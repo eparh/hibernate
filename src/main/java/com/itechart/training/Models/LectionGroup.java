@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "lection")
-public class Lection {
+public class LectionGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", columnDefinition = "INT(11)")
@@ -34,7 +34,7 @@ public class Lection {
 
     @Override
     public String toString() {
-        return "Lection{" +
+        return "LectionGroup{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

@@ -1,7 +1,6 @@
 package com.itechart.training.Dao;
 
-import com.itechart.training.models.LectionMiss;
-import com.itechart.training.models.Student;
+import com.itechart.training.models.LossStudent;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -16,7 +15,7 @@ public class LectionMissDao {
     @PersistenceContext
     private EntityManager manager;
 
-    public LectionMiss findById(long id) {
-        return manager.find(LectionMiss.class, id);
+    public LossStudent findById(long id) {
+        return manager.find(LossStudent.class, id);
     }
 }

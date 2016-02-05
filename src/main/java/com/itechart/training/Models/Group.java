@@ -55,4 +55,14 @@ public class Group {
     public void setCurator(Teacher curator) {
         this.curator = curator;
     }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", created=" + created +
+                ", curator=" + curator +
+                '}';
+    }
 }
