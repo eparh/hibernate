@@ -8,18 +8,18 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "group_lection")
-public class LectionGroup {
+public class LectureGroup {
     @EmbeddedId
-    private LectionPK id;
+    private LecturePK id;
 
     @Column(name = "DATE")
     private Date date;
 
-    public LectionPK getId() {
+    public LecturePK getId() {
         return id;
     }
 
-    public void setId(LectionPK id) {
+    public void setId(LecturePK id) {
         this.id = id;
     }
 
@@ -33,7 +33,7 @@ public class LectionGroup {
 
     @Override
     public String toString() {
-        return "LectionGroup{" +
+        return "LectureGroup{" +
                 "id=" + id +
                 ", date=" + date +
                 '}';

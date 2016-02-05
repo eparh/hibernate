@@ -9,7 +9,7 @@ import java.io.Serializable;
  * Created by zhenya on 05.02.16.
  */
 @Embeddable
-public class LectionPK  implements Serializable{
+public class LecturePK implements Serializable{
     @ManyToOne
     @JoinColumn(name = "LECTION_ID")
     private LectionType lectionType;
@@ -26,7 +26,7 @@ public class LectionPK  implements Serializable{
         return lectionType;
     }
 
-    public LectionPK(LectionType lectionType, Group group, Teacher teacher) {
+    public LecturePK(LectionType lectionType, Group group, Teacher teacher) {
         this.lectionType = lectionType;
         this.group = group;
         this.teacher = teacher;
@@ -54,7 +54,7 @@ public class LectionPK  implements Serializable{
 
     @Override
     public String toString() {
-        return "LectionPK{" +
+        return "LecturePK{" +
                 "lectionType=" + lectionType +
                 ", teacher=" + teacher +
                 ", group=" + group +

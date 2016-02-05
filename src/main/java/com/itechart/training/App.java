@@ -1,7 +1,7 @@
 package com.itechart.training;
 
 import com.itechart.training.Dao.GroupDao;
-import com.itechart.training.Dao.LectionDao;
+import com.itechart.training.Dao.LectureDao;
 import com.itechart.training.Dao.StudentDao;
 import com.itechart.training.Dao.TeacherDao;
 import com.itechart.training.config.SpringConfig;
@@ -24,8 +24,8 @@ public class App
         System.out.println();
 
         System.out.println("Select omission with id="+id + ":");
-        LectionDao lectionDao = context.getBean(LectionDao.class);
-        System.out.println(lectionDao.findMissById(id));
+        LectureDao lectureDao = context.getBean(LectureDao.class);
+        System.out.println(lectureDao.findMissById(id));
 
         System.out.println();
 
@@ -37,7 +37,7 @@ public class App
         System.out.println();
 
         System.out.println("Select lecture type with id="+2 +":");
-        LectionType lection = lectionDao.findLectionById(2);
+        LectionType lection = lectureDao.findLectureById(2);
         System.out.println(lection);
 
         System.out.println();
@@ -48,12 +48,12 @@ public class App
         System.out.println(teacher);
 
         //Primary key
-        LectionPK key = new LectionPK(lection, group, teacher);
+        LecturePK key = new LecturePK(lection, group, teacher);
 
         System.out.println();
 
         System.out.println("Select lecture with id="+ key +":");
-        LectionGroup lecture = lectionDao.findLectureById(key);
+        LectureGroup lecture = lectureDao.findCourseById(key);
         System.out.println(lecture);
     }
 }
