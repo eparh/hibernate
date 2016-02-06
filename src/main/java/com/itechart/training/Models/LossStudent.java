@@ -19,6 +19,10 @@ public class LossStudent {
     private Student student;
 
     @ManyToOne
+    @JoinColumn(name = "GROUP_ID")
+    private Group group;
+
+    @ManyToOne
     @JoinColumn(name = "LECTION_ID")
     private LectionType lection;
 
@@ -34,6 +38,22 @@ public class LossStudent {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public LectionType getLection() {
+        return lection;
+    }
+
+    public void setLection(LectionType lection) {
+        this.lection = lection;
     }
 
     public Student getStudent() {
