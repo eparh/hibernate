@@ -1,4 +1,4 @@
-package com.itechart.training.Dao;
+package com.itechart.training.dao;
 
 import com.itechart.training.models.Teacher;
 import org.springframework.stereotype.Repository;

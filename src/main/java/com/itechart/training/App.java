@@ -1,9 +1,9 @@
 package com.itechart.training;
 
-import com.itechart.training.Dao.GroupDao;
-import com.itechart.training.Dao.LectureDao;
-import com.itechart.training.Dao.StudentDao;
-import com.itechart.training.Dao.TeacherDao;
+import com.itechart.training.dao.GroupDao;
+import com.itechart.training.dao.LectureDao;
+import com.itechart.training.dao.StudentDao;
+import com.itechart.training.dao.TeacherDao;
 import com.itechart.training.config.SpringConfig;
 import com.itechart.training.models.*;
 import org.springframework.context.ApplicationContext;
