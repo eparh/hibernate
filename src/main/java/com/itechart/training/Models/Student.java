@@ -1,7 +1,7 @@
 package com.itechart.training.models;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by zhenya on 04.02.16.
@@ -23,7 +23,7 @@ public class Student {
     @Column(name = "BIRTHDATE")
     private Date birthDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,optional=false)
     @JoinColumn(name = "GROUP_ID")
     private Group group;
 
@@ -67,6 +67,17 @@ public class Student {
         this.group = group;
     }
 
+    public Student() {
+    }
+
+    public Student(String firstName, String lastname, Date birthDate, Group group) {
+
+        this.firstName = firstName;
+        this.lastname = lastname;
+        this.birthDate = birthDate;
+        this.group = group;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -74,7 +85,6 @@ public class Student {
                 ", firstName='" + firstName + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", birthDate=" + birthDate +
-                ", group=" + group +
                 '}';
     }
 }

@@ -12,8 +12,17 @@ public class LectureGroup {
     @EmbeddedId
     private LecturePK id;
 
-    @Column(name = "DATE")
-    private Date date;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "TEACHER_ID")
+    private Teacher teacher;
+
+    public LectureGroup(LecturePK id, Teacher teacher) {
+        this.id = id;
+        this.teacher = teacher;
+    }
+
+    public LectureGroup() {
+    }
 
     public LecturePK getId() {
         return id;
@@ -23,19 +32,17 @@ public class LectureGroup {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
     @Override
     public String toString() {
         return "LectureGroup{" +
-                "id=" + id +
-                ", date=" + date +
-                '}';
+                "id=" + id + '}';
     }
 }

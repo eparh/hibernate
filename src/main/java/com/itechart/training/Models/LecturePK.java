@@ -1,9 +1,11 @@
 package com.itechart.training.models;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by zhenya on 05.02.16.
@@ -14,34 +16,36 @@ public class LecturePK implements Serializable{
     @JoinColumn(name = "LECTION_ID")
     private LectionType lectionType;
 
-    @ManyToOne
-    @JoinColumn(name = "TEACHER_ID")
-    private Teacher teacher;
+    @Column(name = "DATE")
+    private Date date;
 
     @ManyToOne
     @JoinColumn(name = "GROUP_ID")
     private Group group;
 
-    public LectionType getLectionType() {
-        return lectionType;
+    public LecturePK(LectionType lectionType, Date date, Group group) {
+        this.lectionType = lectionType;
+        this.date = date;
+        this.group = group;
     }
 
-    public LecturePK(LectionType lectionType, Group group, Teacher teacher) {
-        this.lectionType = lectionType;
-        this.group = group;
-        this.teacher = teacher;
+    public LecturePK() {
+    }
+
+    public LectionType getLectionType() {
+        return lectionType;
     }
 
     public void setLectionType(LectionType lectionType) {
         this.lectionType = lectionType;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
+    public Date getDate() {
+        return date;
     }
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public Group getGroup() {
@@ -56,7 +60,7 @@ public class LecturePK implements Serializable{
     public String toString() {
         return "LecturePK{" +
                 "lectionType=" + lectionType +
-                ", teacher=" + teacher +
+                ", date=" + date +
                 ", group=" + group +
                 '}';
     }

@@ -9,6 +9,10 @@ import com.itechart.training.models.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 
 public class App 
 {
@@ -30,8 +34,8 @@ public class App
         System.out.println();
 
         System.out.println("Select group with id="+id + ":");
-        GroupDao dao = context.getBean(GroupDao.class);
-        Group group = dao.findById(id);
+        GroupDao groupDao = context.getBean(GroupDao.class);
+        Group group = groupDao.findById(id);
         System.out.println(group);
 
         System.out.println();
@@ -48,12 +52,53 @@ public class App
         System.out.println(teacher);
 
         //Primary key
-        LecturePK key = new LecturePK(lection, group, teacher);
 
         System.out.println();
 
-        System.out.println("Select lecture with id="+ key +":");
-        LectureGroup lecture = lectureDao.findCourseById(key);
-        System.out.println(lecture);
+        System.out.println("Select all lectures:");
+        List<LectureGroup> lectureGroups = lectureDao.findAllLectures();
+        for(LectureGroup lectureGroup: lectureGroups) {
+            System.out.println(lectureGroup);
+        }
+        System.out.println();
+
+        System.out.println("Select students from group:");
+        List<Student> studentList = groupDao.getStudents(group);
+        for(Student student: studentList) {
+            System.out.println(student);
+        }
+
+        System.out.println();
+
+        System.out.println("Select lectures by teacher:");
+        List<LectionType> lectionTypes = lectureDao.findLecturesByTeacher(teacher);
+        for(LectionType lectionType: lectionTypes) {
+            System.out.println(lectionType);
+        }
+
+        System.out.println();
+
+        System.out.println("Select groups by teacher:");
+        List<Group> groupList = groupDao.findGroupsByTeacher(teacher);
+        for(Group teacherGroup: groupList) {
+            System.out.println(teacherGroup);
+        }
+
+        System.out.println();
+
+        System.out.println("Select misses by group and lecture:");
+        List<Student> misses = studentDao.getMisses(lection,group);
+        for(Student student: misses) {
+            System.out.println(student);
+        }
+
+
+        System.out.println();
+
+        System.out.println("Select students which don't belong group:");
+        List<Student>  students = studentDao.getAnotherStudent(group);
+        for(Student student: students) {
+            System.out.println(student);
+        }
     }
 }

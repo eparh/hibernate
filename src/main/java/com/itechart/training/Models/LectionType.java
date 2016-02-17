@@ -1,7 +1,6 @@
 package com.itechart.training.models;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by zhenya on 04.02.16.
@@ -16,6 +15,13 @@ public class LectionType {
 
     @Column(name = "NAME")
     private String name;
+
+    public LectionType(String name) {
+        this.name = name;
+    }
+
+    public LectionType() {
+    }
 
     public long getId() {
         return id;

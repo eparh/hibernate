@@ -13,9 +13,9 @@ public class Teacher {
     @Column(name = "ID", columnDefinition = "INT(11)")
     private Long id;
     @Column(name = "FIRST_NAME")
-    private String FirstName;
+    private String firstName;
     @Column(name = "LAST_NAME")
-    private String Lastname;
+    private String lastname;
 
     public long getId() {
         return id;
@@ -26,27 +26,35 @@ public class Teacher {
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastname() {
-        return Lastname;
+        return lastname;
     }
 
     public void setLastname(String lastname) {
-        Lastname = lastname;
+        this.lastname = lastname;
+    }
+
+    public Teacher(String firstName, String lastname) {
+        this.firstName = firstName;
+        this.lastname = lastname;
+    }
+
+    public Teacher() {
     }
 
     @Override
     public String toString() {
         return "Teacher{" +
                 "id=" + id +
-                ", FirstName='" + FirstName + '\'' +
-                ", Lastname='" + Lastname + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastname='" + lastname + '\'' +
                 '}';
     }
 }

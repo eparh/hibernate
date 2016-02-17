@@ -9,28 +9,34 @@ import java.util.Date;
 @Entity
 @Table(name = "loss_student")
 public class LossStudent {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "LOSS_STUDENT_ID", columnDefinition = "INT(11)")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "STUDENT_ID")
     private Student student;
 
-    @ManyToOne
-    @JoinColumn(name = "GROUP_ID")
-    private Group group;
-
-    @ManyToOne
-    @JoinColumn(name = "LECTION_ID")
-    private LectionType lection;
-
-    @Column(name = "DATE")
-    private Date date;
+    @ManyToOne(fetch = FetchType.LAZY,optional=false)
+    @JoinColumns( {
+            @JoinColumn(name = "LECTION_ID", referencedColumnName = "LECTION_ID"),
+            @JoinColumn(name = "GROUP_ID", referencedColumnName = "GROUP_ID"),
+            @JoinColumn(name = "DATE", referencedColumnName = "DATE")
+    })
+    private LectureGroup lecturePK;
 
     @Column(name = "REASON")
     private String reason;
+
+    public LossStudent(Student student, LectureGroup lecturePK, String reason) {
+        this.student = student;
+        this.lecturePK = lecturePK;
+        this.reason = reason;
+    }
+
+    public LossStudent() {
+    }
 
     public Long getId() {
         return id;
@@ -40,20 +46,12 @@ public class LossStudent {
         this.id = id;
     }
 
-    public Group getGroup() {
-        return group;
+    public LectureGroup getLecturePK() {
+        return lecturePK;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
-    }
-
-    public LectionType getLection() {
-        return lection;
-    }
-
-    public void setLection(LectionType lection) {
-        this.lection = lection;
+    public void setLecturePK(LectureGroup lecturePK) {
+        this.lecturePK = lecturePK;
     }
 
     public Student getStudent() {
@@ -62,22 +60,6 @@ public class LossStudent {
 
     public void setStudent(Student student) {
         this.student = student;
-    }
-
-    public LectionType getLectionGroup() {
-        return lection;
-    }
-
-    public void setLectionGroup(LectionType lection) {
-        this.lection = lection;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public String getReason() {
@@ -92,8 +74,6 @@ public class LossStudent {
     public String toString() {
         return "LossStudent{" +
                 "id=" + id +
-                ", student=" + student +
-                ", date=" + date +
                 ", reason='" + reason + '\'' +
                 '}';
     }
